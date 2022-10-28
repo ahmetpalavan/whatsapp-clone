@@ -7,6 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Search from './Search';
 import Header from './Header';
 import SidebarButton from './SidebarButton';
+import Login from '../pages/login';
 
 function Sidebar() {
     return (
