@@ -3,24 +3,21 @@ import {useAuthState} from 'react-firebase-hooks/auth'
 import { auth, db } from '../firebase'
 import Login from './login'
 import { Loading } from '../components'
-import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect } from 'react'
+import { serverTimestamp,collection,addDoc } from 'firebase/firestore'
+import { useState } from 'react'
 
 function MyApp({ Component, pageProps }) {
   const [user,loading] = useAuthState(auth);
   useEffect(()=>{
     if(user){
-      onSnapshot(collection(db,"users"),(snapshot)=>{
-        (snapshot.docs.map((user)=>{
-          return{
-            email: user.email,
-            lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
-            photoURL: user.photoURL
-          },{merge:true}
-        }))
-      })
+      addDoc(collection(db,'users'),{
+        email:user.email,
+        lastSeen:serverTimestamp(),
+        photoURL:user.photoURL,
+      },{merge:true})
     }
-  },[user])
+  })
   if(loading) return <Loading/>
   if(!user) return <Login/>
   return <Component {...pageProps} />
