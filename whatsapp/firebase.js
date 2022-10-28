@@ -1,7 +1,6 @@
 import { initializeApp } from '@firebase/app';
-import firebase from './firebase'
 import {getFirestore} from 'firebase/firestore'
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, sign, signInWithPopup } from 'firebase/auth';
 const firebaseConfig = {
     apiKey: "AIzaSyArmxx7V-9_lUFWfVLVOGLIySAl9aLBjzs",
     authDomain: "whatsapp-fbdc5.firebaseapp.com",
@@ -13,8 +12,15 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 
-const db = getFirestore()
-const auth = getAuth()
-const provider = new GoogleAuthProvider(GoogleAuthProvider)
+export const db = getFirestore()
+export const auth = getAuth(app)
+export const provider = new GoogleAuthProvider()
 
-export {db, auth, provider }
+export const signInWithGoogle = () => {
+    signInWithPopup(auth,provider).then((result)=>{
+        console.log(result);
+    }).catch((error)=>{
+        console.log(error);
+    })
+}
+
