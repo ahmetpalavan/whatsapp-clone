@@ -9,7 +9,8 @@ function Sidebar({chatsSnapshot}) {
             <Header/>
             <Search/>
             <SidebarButton/>
-            {chatsSnapshot?.docs.map((chat) => (
+            {/* List of Chats */}
+            {chatsSnapshot?.docs.map(chat => (
                 <Chat key={chat.id} id={chat.id} users={chat.data().users}/>
             ))}
         </div>
