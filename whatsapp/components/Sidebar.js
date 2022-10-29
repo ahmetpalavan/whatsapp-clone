@@ -1,20 +1,17 @@
-import Avatar from '@mui/material/Avatar';
-import ChatIcon from '@mui/icons-material/Chat';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { Container } from '@mui/system'
-import { IconButton } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import Search from './Search';
 import Header from './Header';
 import SidebarButton from './SidebarButton';
-import Login from '../pages/login';
+import Chat from './Chat';
 
-function Sidebar() {
+function Sidebar({chatsSnapshot}) {
     return (
         <div>
             <Header/>
             <Search/>
             <SidebarButton/>
+            {chatsSnapshot?.docs.map((chat) => (
+                <Chat key={chat.id} id={chat.id} users={chat.data().users}/>
+            ))}
         </div>
 )
 }

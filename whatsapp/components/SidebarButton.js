@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase';
 import { addDoc, collection } from 'firebase/firestore';
 import {useCollection} from 'react-firebase-hooks/firestore'
+import Chat from './Chat';
 const SidebarButton = () => {
     const [user] = useAuthState(auth);
     const userChatRef = collection(db,"chats",`{user.email}`,`chats`)
@@ -25,6 +26,7 @@ const SidebarButton = () => {
 return (
     <div>
         <Button onClick={createChat} className='w-full border-t-[1px] border-b-[1px] text-black border-solid border-[#f5f5f5]'>Start a new chat</Button>
+        <Chat/>
     </div>
 )
 }
