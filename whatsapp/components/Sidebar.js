@@ -5,7 +5,7 @@ import Chat from './Chat';
 
 function Sidebar({chatsSnapshot}) {
     return (
-        <div>
+        <div className='flex-[0.45] border-r h-screen min-w-[300px] max-w-[350px] overflow-y-scroll scrollbar'>
             <Header/>
             <Search/>
             <SidebarButton/>

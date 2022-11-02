@@ -3,7 +3,7 @@ import React from 'react'
 import {Circle} from 'better-react-spinkit'
 const Loading = () => {
 return (
-    <center className="grid items-center h-screen">
+    <center className="grid items-center  h-screen">
         <div>
             <Image className='mb-10'
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png'

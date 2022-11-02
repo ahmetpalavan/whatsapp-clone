@@ -24,7 +24,7 @@ import Chat from './Chat';
         !!chatsSnapshot?.docs.find(chat => chat.data().users.find((user) => user === recipientEmail)?.length > 0)
     }
 return (
-    <div>
+    <div className='overflow-hidden'>
         <Button onClick={createChat} className='w-full border-t-[1px] border-b-[1px] text-black border-solid border-[#f5f5f5]'>Start a new chat</Button>
         {
             chatsSnapshot?.docs.map(chat => ( 

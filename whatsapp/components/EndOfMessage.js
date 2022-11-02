@@ -2,7 +2,7 @@ import React from 'react'
 
 const EndOfMessage = () => {
   return (
-    <div>EndOfMessage</div>
+    <div></div>
   )
 }
 
