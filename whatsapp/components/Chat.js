@@ -18,10 +18,7 @@ const Chat = ({ users, id }) => {
   const recipientEmail = getRecipientEmail(users, user);
   console.log(recipientEmail);
   return (
-    <div
-      onClick={handleClick}
-      className="flex items-center cursor-pointer p-4 break-words hover:bg-[#e9eaeb]"
-    >
+    <div onClick={handleClick} className="flex items-center cursor-pointer p-4 break-words hover:bg-[#e9eaeb]">
       {recipient ? ( // if recipient exists
         <Avatar src={recipient?.photoURL} className="m-1 mr-4" />
       ) : (
